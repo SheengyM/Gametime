@@ -8,35 +8,35 @@
                 {% csrf_token %} <!--Prevent hackers from accessing site -->
                 
                 <div class="mb-3">
-                    <input type="text" class="form-control"  aria-describedby="university" placeholder="Universty" name="University">
+                    <input type="text" class="form-control"  aria-describedby="university" placeholder="Universty" name="University" value="{{ University}}">
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control"  aria-describedby="university" placeholder="Program" name="Program">
+                    <input type="text" class="form-control"  aria-describedby="university" placeholder="Program" name="Program" value="{{ Program}}">
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder=" First Name" name="FirstName">
+                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder=" First Name" name="FirstName" value="{{ FirstName}}">
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Last Name" name="LastName">
+                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Last Name" name="LastName" value="{{ LastName}}">
                 </div>
                 <div class="mb-3">
-                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email Address" name="Email">
+                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email Address" name="Email" value="{{ Email}}">
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Phone" name="Phone">
+                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Phone" name="Phone" value="{{ Phone}}">
                 </div>
             
                 <div class="mb-3">
-                <input type="password" class="form-control"  placeholder="Password" name="Password">
+                <input type="password" class="form-control"  placeholder="Password" name="Password" placeholder="Password" value="{{ Password}}">
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Age" name="Age">
+                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Age" name="Age" value="{{ Age}}">
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Address" name="Address">
+                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Address" name="Address" value="{{ Address}}">
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Next Of Kin" name="Next_of_Kin">
+                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Next Of Kin" name="Next_of_Kin" value="{{ Next_of_Kin }}">
                 </div>
                 <button type="submit" class="btn btn-secondary">Sign Up</button>
                 <hr>

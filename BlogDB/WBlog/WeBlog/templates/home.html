@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Posts</h1>
+
+  {% for post in object_list %}
+    <div class="post">
+      {% if user.is_authenticated %}
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+          <button class="btn btn-success">
+            <a href="{% url 'update_post' post.pk %}">Edit</a>
+          </button>
+          <button type="button" class="btn btn-warning">- Edit | Delete -</button>
+          <button class="btn btn-danger">
+            <a href="{% url 'delete_post' post.pk %}">Delete</a>
+          </button>
+        </div>
+      {% endif %}
+
+      <strong>Author: </strong>
+      <a href="{% url 'article-detail' post.pk %}">
+        {{ post.author.first_name }} {{ post.author.last_name }}
+      </a>
+      <br>
+      <strong>Post Category: </strong>
+      <a href="{% url 'category' post.category %}">{{ post.category }}</a>
+      <br>
+      <strong>Post Title: </strong> {{ post.title }}
+      <br>
+      <strong>Date: </strong> {{ post.post_date }}
+      <br>
+      <strong>Post: </strong>{{ post.body|slice:":200"|safe }}
+    </div>
+    <hr>
+  {% endfor %}
+{% endblock %}
