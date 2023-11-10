@@ -1,26 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
+   <span class="badge text-bg-primary">User: {{ user.first_name }}
+    </span>
   <h1>Posts</h1>
 
   {% for post in object_list %}
     <div class="post">
       {% if user.is_authenticated %}
-        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-          <button class="btn btn-success">
-            <a href="{% url 'update_post' post.pk %}">Edit</a>
+      {% if user.id == post.author.id %}
+        <!--<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+      
+          <button class="btn btn-outline-warning"><a href="{% url 'update_post' post.pk %}">Edit</button>
+
+          <button class="btn btn-danger">...</a>
           </button>
-          <button type="button" class="btn btn-warning">- Edit | Delete -</button>
-          <button class="btn btn-danger">
-            <a href="{% url 'delete_post' post.pk %}">Delete</a>
-          </button>
-        </div>
+          <button class="btn btn-outline-danger"><a href="{% url 'delete_post' post.pk %}">Delete</button></a>
+         
+
+        </div> -->
+      </br>
+        {% endif %}
       {% endif %}
 
       <strong>Author: </strong>
-      <a href="{% url 'article-detail' post.pk %}">
+      <span class="badge text-bg-info"> <a href="{% url 'article-detail' post.pk %}">
         {{ post.author.first_name }} {{ post.author.last_name }}
-      </a>
+      </a></span>
       <br>
       <strong>Post Category: </strong>
       <a href="{% url 'category' post.category %}">{{ post.category }}</a>
@@ -33,4 +39,6 @@
     </div>
     <hr>
   {% endfor %}
+   
+    <hr>
 {% endblock %}

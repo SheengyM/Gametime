@@ -19,6 +19,11 @@ Create A New Blog Post
             <button class="btn btn-outline-secondary">Post</button>
     </div>
     <br/>
+    <!--javascript to  make the backend forms know who is logged in and who is not -->
+    <script>
+        var name = "{{ user.id }}"; 
+        document.getElementById("Bauthor").value = name;
+    </script>
  {% else %}
 You're not allowed here and you know it...!
     
