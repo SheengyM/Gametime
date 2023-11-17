@@ -64,11 +64,12 @@ class ArticleDetailView(DetailView):
         context["liked"] = liked
         return context
 
+
 class AddPostView(CreateView):
     model = Post
     form_class = PostForm
     template_name = 'add_post.html'
-    
+
 
 class AddCategoryView(CreateView):
     model = Category

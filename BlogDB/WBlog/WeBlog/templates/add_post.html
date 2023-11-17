@@ -1,35 +1,30 @@
-
 {% extends 'base.html' %}
-{% block title%}
-Create A New Blog Post
 
+{% block title %}
+Create A New Blog Post
 {% endblock %}
 
-{% block content%}
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1>Add Post </h1>
+        <br/>
 
-{% if user.is_authenticated %}
-
-    <h1>Add Post </h1>
-    <br/>
-
-    <div class='form-group'> 
-        <form method="POST">
+        <form method="POST" class='form-group'>
             {% csrf_token %}
             {{ form.as_p }}
-            <button class="btn btn-outline-secondary">Post</button>
-    </div>
-    <br/>
-    <!--javascript to  make the backend forms know who is logged in and who is not -->
-    <script>
-        var name = "{{ user.id }}"; 
-        document.getElementById("Bauthor").value = name;
-    </script>
- {% else %}
-You're not allowed here and you know it...!
-    
- {% endif %}
+            <button class="btn btn-outline-secondary" type="submit">Post</button>
+        </form>
 
-
-
-
-{%endblock%}
+        <br/>
+        <!-- JavaScript to make the backend forms know who is logged in and who is not -->
+        <script>
+            var name = "{{ user.id }}"; 
+            document.getElementById("Bauthor").value = name;
+        </script>
+        
+        <!-- Display form validation errors -->
+        {{ form.errors }}
+    {% else %}
+        <p>You're not allowed here, and you know it...!</p>
+    {% endif %}
+{% endblock %}
